@@ -145,8 +145,8 @@ class FeedbackForm
     private function question_to_html($feedbackQuestion) {
         // Start the HTML.
         $html  = '<table class="feedback-form-question" border="0"><tbody>';
-        $html .= '<tr><td colspan="' . $this->scale . '">';
-        $html .= '<p class="">' . $feedbackQuestion->getText() . "</p>";
+        $html .= '<tr><td colspan="' . $this->scale . '" class="feedback-form-question-text-cell">';
+        $html .= '<p class="feedback-form-question-text">' . $feedbackQuestion->getText() . "</p>";
         $html .= '</td></tr>';
 
         // Add the rating numbers.
