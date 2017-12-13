@@ -1,5 +1,9 @@
+.feedback-form-container {
+    width: 50%;
+}
+
 .feedback-form {
-    width: 600px;
+    width: 100%;
 }
 
 .feedback-form-metadata {
@@ -10,13 +14,17 @@
 .feedback-form-question {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
-    width: 600px;
-    margin-bottom: 1em;
+    width: 100%;
+    margin-bottom: 0.2em;
+}
+
+.feedback-form-question-text-cell {
+    background: lightblue;
 }
 
 .feedback-form-question-text {
-    background-color: green;
-    color: red;
+    margin: 0;
+    padding: 0.2em;
 }
 
 .feedback-form-rating-star-off {
@@ -34,6 +42,8 @@
 }
 
 .feedback-form-comments-label {
+    font-weight: normal;
+    margin-right: 4px;
     width: 20%;
     vertical-align: top;
 }
