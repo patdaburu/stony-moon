@@ -49,4 +49,5 @@ class FeedbackQuestion
     function getText() {
         return $this->text;
     }
+
 }

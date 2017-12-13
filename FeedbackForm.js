@@ -89,8 +89,30 @@ var FeedbackForm =
      */
     submit : function (form_id) {
         form_data = this.getFeedbackFormData(form_id);
+        form_data_json = JSON.stringify(form_data);
         console.log('I will submit the following...');
         console.log(JSON.stringify(form_data));
+        /*
+        $.post("FeedbackFormHandler.php", form_data)
+            .done(function(response){
+                console.log(response);
+            });
+            */
+        $.ajax({
+            type: 'POST',
+            url: "FeedbackFormHandler.php",
+            data: form_data_json,
+            success: function(data, textStatus, jQxhr) {
+                console.log(data);
+            },
+            error: function(jqXhr, textStatus, errorThrown) {
+                console.log('error!');
+                console.log(jqXhr);
+                console.log(textStatus);
+                console.log(errorThrown);
+            },
+            dataType: 'json'
+        });
     },
 
     /**
@@ -144,9 +166,9 @@ var FeedbackForm =
                 submit_button = document.getElementById(submit_button_id);
                 submit_button.onclick = (function(form_id, submit_button){
                     return function() {
-                        submit_button.disabled = true;
-                        submit_button.innerText = 'Submitting...';
-                        submit_button.className='feedback-form-button-in-progress';
+//                        submit_button.disabled = true;
+//                        submit_button.innerText = 'Submitting...';
+//                        submit_button.className='feedback-form-button-in-progress';
                         FeedbackForm.submit(form_id);
                     }
                 })(form_id, submit_button);
