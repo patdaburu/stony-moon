@@ -49,6 +49,11 @@ class FeedbackForm
     private $no_inline_js = true;
 
     /**
+     * @var string the base URL for relative links
+     */
+    public $baseUrl = './';
+
+    /**
      * FeedbackForm constructor.
      * @param array $questions an array of FeedbackQuestion objects that define the form
      * @param int $scale the ratings scale
@@ -85,6 +90,22 @@ class FeedbackForm
     }
 
     /**
+     * Set the base URL.
+     * @param $baseUrl string the base URL for relative links
+     */
+    public function setBaseUrl($baseUrl){
+        $this->baseUrl = $baseUrl;
+    }
+
+    /**
+     * Get the base URL.
+     * @return string the base URL for relative links
+     */
+    public function getBaseUrl() {
+        return $this->baseUrl;
+    }
+
+    /**
      * Render the form's HTML.
      *
      * @return string
@@ -96,7 +117,8 @@ class FeedbackForm
             "form_id"=>$this->id,
             "scale"=>$this->scale,
             "no_inline_js"=>$this->no_inline_js,
-            "question_ids"=>array());
+            "question_ids"=>array(),
+            "base_url"=>$this->baseUrl);
 
         // Configure the general HTML from the template.
         $html = $this->html_template;
@@ -108,13 +130,13 @@ class FeedbackForm
         $html = preg_replace(
             '/\[css\]/i',
             $this->no_inline_css ?
-                '<link rel="stylesheet" type="text/css" href="./FeedbackForm.css">' :
+                '<link rel="stylesheet" type="text/css" href="' . $this->baseUrl . 'FeedbackForm.css">' :
                 '<style type="text/css">' . $this->css . '</style>',
             $html);
         $html = preg_replace(
             '/\[js\]/i',
             $this->no_inline_js ?
-                '<script type="text/javascript" src="./FeedbackForm.js"></script>' :
+                '<script type="text/javascript" src="'. $this->baseUrl . 'FeedbackForm.js"></script>' :
                 '<script>' .$this->js . '</script>',
             $html);
 
@@ -123,7 +145,7 @@ class FeedbackForm
         foreach($this->questions as $question) {
             // Append information to the meta-data object.
             array_push($meta['question_ids'], $question->getId());
-            $questions .= $this->question_to_html($question, $meta);
+            $questions .= $this->question_to_html($question);
         }
         $html = preg_replace('/\[questions\]/i', $questions, $html);
 
