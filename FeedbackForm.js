@@ -88,19 +88,17 @@ var FeedbackForm =
      * @param form_id the ID of the form
      */
     submit : function (form_id) {
+        // Get the meta-data for this form.
+        form_meta = this.form_metas[form_id];
+        form_handler = form_meta.base_url + "FeedbackFormHandler.php";
         form_data = this.getFeedbackFormData(form_id);
         form_data_json = JSON.stringify(form_data);
-        console.log('I will submit the following...');
+        console.log('I will submit the following to ' + form_handler + ' ...');
         console.log(JSON.stringify(form_data));
-        /*
-        $.post("FeedbackFormHandler.php", form_data)
-            .done(function(response){
-                console.log(response);
-            });
-            */
+
         $.ajax({
             type: 'POST',
-            url: "FeedbackFormHandler.php",
+            url: form_handler,
             data: form_data_json,
             success: function(data, textStatus, jQxhr) {
                 console.log(data);

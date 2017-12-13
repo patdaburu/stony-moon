@@ -38,6 +38,9 @@ ini_set('display_errors', '1');
         new \StearnsConnect\FeedbackQuestion("four","How likely are you to recommend Stearns Bank to a friend?"),
     );
     $ff = new \StearnsConnect\FeedbackForm($questions, 7);
+    // Set the base URL.
+    // ie. http://192.168.110.40/stony-moon/ (*with* the trailing slash)
+    $ff->setBaseUrl("./"); // Set the base URL for relative links.
     echo $ff->render();
 ?>
 
