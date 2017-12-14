@@ -1,5 +1,10 @@
+feedback-form-tr {
+    border-top: 0;
+    padding: 0;
+}
+
 .feedback-form-container {
-    width: 50%;
+    width: 300px;
 }
 
 .feedback-form {
@@ -16,13 +21,20 @@
     font-weight: bold;
     width: 100%;
     margin-bottom: 0.2em;
+    border-top: 0;
+    padding: 0;
 }
 
 .feedback-form-question-text-cell {
-    background: lightblue;
+    border-top: 3px solid #ef8853;
+    background: #dd5d1c;
+    text-align: left;
+    padding: 0;
 }
 
 .feedback-form-question-text {
+    color: white;
+    text-align: center;
     margin: 0;
     padding: 0.2em;
 }
@@ -30,15 +42,32 @@
 .feedback-form-rating-star-off {
     text-align: center;
     color: lightgray;
+    padding: 0;
+    border-top: 0;
 }
 
 .feedback-form-rating-star-on {
     text-align: center;
     color: darkorange;
+    padding: 0;
+    border-top: 0;
 }
 
 .feedback-form-rating-number {
     text-align: center;
+    padding: 0;
+    border-top: 0;
+}
+
+.feedback-form-comments-table {
+    box-shadow: none;
+    padding: 0;
+    border-top: 0;
+}
+
+.feedback-form-comments-cell {
+    padding: 0px;
+    border-top: 0px;
 }
 
 .feedback-form-comments-label {
@@ -46,12 +75,20 @@
     margin-right: 4px;
     width: 20%;
     vertical-align: top;
+    border-top: 0;
+    padding: 0 8px 0 0;
+}
+
+.feedback-form-comments-input-cell {
+    border-top: 0;
+    padding: 0;
 }
 
 .feedback-form-comments-input {
     width: 100%;
-    height: 4em;
+    height: 2em;
     resize: none;
+    padding: 0;
 }
 
 .feedback-form-submit {
@@ -59,11 +96,11 @@
 }
 
 .feedback-form-button {
-    background-color: #4CAF50;
+    background-color: #006c67;
     border: none;
-    border-radius: 8px;
+    border-radius: 0;
     color: white;
-    padding: 15px 32px;
+    padding: 8px 16px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -74,29 +111,11 @@
     cursor: pointer;
 }
 
-.feedback-form-button-in-progress {
-    background-color: gray;
-    border: none;
-    border-radius: 8px;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-}
-
-.hidden {
+.feedback-form-metadata {
     display: none;
 }
 
-.visible {
-    display: inline-block;
-}
+
 
 
 

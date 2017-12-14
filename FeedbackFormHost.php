@@ -21,6 +21,15 @@ ini_set('display_errors', '1');
             src="https://code.jquery.com/jquery-3.2.1.js"
             integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
             crossorigin="anonymous"></script>
+    <!--
+    Existing portal styles.
+    -->
+    <style>
+        table tbody tr th, table tbody tr td {
+            border-top: 1px solid #e2e2e1;
+            padding: 10px 10px;
+        }
+    </style>
 </head>
 <body>
 

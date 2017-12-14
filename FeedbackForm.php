@@ -51,7 +51,12 @@ class FeedbackForm
     /**
      * @var string the base URL for relative links
      */
-    public $baseUrl = './';
+    private $baseUrl = './';
+
+    /**
+     * @var bool Include debugging output?
+     */
+    private $debug = false;
 
     /**
      * FeedbackForm constructor.
@@ -103,6 +108,14 @@ class FeedbackForm
      */
     public function getBaseUrl() {
         return $this->baseUrl;
+    }
+
+    public function getDebug() {
+        return $this->debug;
+    }
+
+    public function setDebug($debug) {
+        $this->debug = $debug;
     }
 
     /**
@@ -167,7 +180,7 @@ class FeedbackForm
     private function question_to_html($feedbackQuestion) {
         // Start the HTML.
         $html  = '<table class="feedback-form-question" border="0"><tbody>';
-        $html .= '<tr><td colspan="' . $this->scale . '" class="feedback-form-question-text-cell">';
+        $html .= '<tr class="feedback-form-tr"><td colspan="' . $this->scale . '" class="feedback-form-question-text-cell">';
         $html .= '<p class="feedback-form-question-text">' . $feedbackQuestion->getText() . "</p>";
         $html .= '</td></tr>';
 
@@ -202,8 +215,8 @@ class FeedbackForm
         $html .= '</tr>';
 
         // Add the Comment field.
-        $html .= '<tr><td colspan="' . $this->scale . '">';
-        $html .= '<table border="0" width="100%"><tbody>';
+        $html .= '<tr class="feedback-form-tr"><td colspan="' . $this->scale . '" class="feedback-form-comments-cell">';
+        $html .= '<table border="0" width="100%" class="feedback-form-comments-table"><tbody>';
         $html .= '<tr>';
         $html .= '<td class="feedback-form-comments-label">Comments</td>'; // the label
         $onkeyup = $this->no_inline_js ?
@@ -211,7 +224,7 @@ class FeedbackForm
             "onkeyup=\"FeedbackForm . setComment('{$this->id}', '{$feedbackQuestion->getId()}')\"";
 
         $html .= "
-            <td>
+            <td class=\"feedback-form-comments-input-cell\">
             <textarea class=\"feedback-form-comments-input\" 
                 id=\"{$this->id}:{$feedbackQuestion->getId()}:comment\" {$onkeyup}
                 placeholder='(Optional)'
