@@ -178,7 +178,7 @@ class FeedbackForm
         // Render the button to open the form.
         $link_class = $this->isFlashy ? 'feedback-form-link-flashing' : 'feedback-form-link';
         $html .= "
-        <div class=\"{$link_class}\" id=\"{$this->id}:open\">
+        <div class=\"{$link_class}\" id=\"{$this->id}--open\">
             <img src=\"./FeedbackFormLink.svg\" class=\"feedback-form-link-img\"/>
         </div>
         ";
