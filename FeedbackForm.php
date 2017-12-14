@@ -54,6 +54,11 @@ class FeedbackForm
     private $baseUrl = './';
 
     /**
+     * @var bool Should the form call attention to itself?
+     */
+    private $isFlashy = false;
+
+    /**
      * @var bool Include debugging output?
      */
     private $debug = false;
@@ -118,6 +123,14 @@ class FeedbackForm
         $this->debug = $debug;
     }
 
+    public function getIsFlashy() {
+        return $this->isFlashy;
+    }
+
+    public function setIsFlashy($isFlashy) {
+        $this->isFlashy = $isFlashy;
+    }
+
     /**
      * Render the form's HTML.
      *
@@ -161,6 +174,14 @@ class FeedbackForm
             $questions .= $this->question_to_html($question);
         }
         $html = preg_replace('/\[questions\]/i', $questions, $html);
+
+        // Render the button to open the form.
+        $link_class = $this->isFlashy ? 'feedback-form-link-flashing' : 'feedback-form-link';
+        $html .= "
+        <div class=\"{$link_class}\" id=\"{$this->id}--open\">
+            <img src=\"./FeedbackFormLink.svg\" class=\"feedback-form-link-img\"/>
+        </div>
+        ";
 
         // Construct the metadata element.
         $meta_html = '<div id="feedback-form-metadata" class="feedback-form-metadata">' .

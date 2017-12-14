@@ -58,8 +58,15 @@ ini_set('display_errors', '1');
     // Set the base URL.
     // ie. http://192.168.110.40/stony-moon/ (*with* the trailing slash)
     $ff->setBaseUrl("./"); // Set the base URL for relative links.
+    $ff->setIsFlashy(true);
     echo $ff->render();
 ?>
+
+<!--
+<div class="feedback-form-link-flashing">
+    <img src="./FeedbackFormLink.svg" class="feedback-form-link-img"/>
+</div>
+-->
 
 </body>
 </html>

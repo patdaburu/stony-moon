@@ -5,6 +5,12 @@ feedback-form-tr {
 
 .feedback-form-container {
     width: 300px;
+    box-shadow: 1px 2px 4px 0 rgba(66,66,66,.4);
+    position: fixed;
+    bottom: 12px;
+    right: 20px;
+    z-index: 999;
+    background-color: white;
 }
 
 .feedback-form {
@@ -67,8 +73,8 @@ feedback-form-tr {
 }
 
 .feedback-form-comments-cell {
-    padding: 0px;
-    border-top: 0px;
+    padding: 0;
+    border-top: 0;
 }
 
 .feedback-form-comments-label {
@@ -120,7 +126,64 @@ feedback-form-tr {
     display: none;
 }
 
+.feedback-form-link {
+    position: fixed;
+    bottom: 15px;
+    right: 95px;
+    background-color: #427fe1;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0.5px 1px 1px 1px #dbdbdb;
+    border: 3px solid #fff;
+    text-align: center;
+    cursor: pointer;
+    z-index: 998;
+}
 
+.feedback-form-link-flashing {
+    position: fixed;
+    bottom: 15px;
+    right: 95px;
+    background-color: #427fe1;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    box-shadow: 0.5px 1px 1px 1px #dbdbdb;
+    border: 3px solid #fff;
+    text-align: center;
+    cursor: pointer;
+    z-index: 998;
+    animation: feedback-form-link-flash-animation 1s ease-in-out infinite;
+}
+
+.feedback-form-link:hover {
+    background-color: #3465b4;
+}
+
+.feedback-form-link-img {
+    width: 35px;
+    margin-top: 22px;
+}
+
+@keyframes feedback-form-link-flash-animation {
+    from {background-color: #427fe1;}
+    to {background-color: #dd5d1c;}
+}
+
+.feedback-form-goodbye {
+    position: fixed;
+    right: 60px;
+    bottom: 60px;
+    background-color: #dd5d1c;
+    box-shadow: 0.5px 1px 1px 1px #dbdbdb;
+    border: 3px solid #fff;
+    border-radius: 12px;
+    color: white;
+    font-size: 24px;
+    padding: 0 12px 0 12px;
+    z-index: 999;
+}
 
 
 

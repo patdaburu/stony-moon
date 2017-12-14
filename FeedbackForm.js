@@ -102,6 +102,16 @@ var FeedbackForm =
             data: form_data_json,
             success: function(data, textStatus, jQxhr) {
                 console.log(data);
+                // Hide the feedback button.
+                open_button_id = form_meta.form_id + '--open';
+                FeedbackForm.hideElementById(open_button_id);
+                form_div_id = form_meta.form_id + '--container';
+                FeedbackForm.hideElementById(form_div_id);
+                // Show the "goodbye" button.
+                goodbye_div_id = form_meta.form_id + '--goodbye';
+                goodbye_div_jqid = "#"+form_meta.form_id + '--goodbye';
+                FeedbackForm.setClassById(goodbye_div_id, 'feedback-form-goodbye');
+                $(goodbye_div_jqid).fadeOut(5000);
             },
             error: function(jqXhr, textStatus, errorThrown) {
                 console.log('error!');
@@ -111,6 +121,30 @@ var FeedbackForm =
             },
             dataType: 'json'
         });
+    },
+
+
+    show : function(form_id) {
+        // Get the meta-data for this form.
+        meta = this.form_metas[form_id];
+        form_div_id = meta.form_id + '--container';
+        form_div = document.getElementById(form_div_id);
+        form_div.className = 'feedback-form-container';
+    },
+
+    /**
+     * Hide a form element.
+     * @param element_id the ID of the element
+     */
+    hideElementById : function(element_id){
+        // TODO: Refactor to use setClassById.
+        el = document.getElementById(element_id);
+        el.className = 'feedback-form-hidden';
+    },
+
+    setClassById : function(element_id, className){
+        el = document.getElementById(element_id);
+        el.className = className;
     },
 
     /**
@@ -164,12 +198,28 @@ var FeedbackForm =
                 submit_button = document.getElementById(submit_button_id);
                 submit_button.onclick = (function(form_id, submit_button){
                     return function() {
-//                        submit_button.disabled = true;
-//                        submit_button.innerText = 'Submitting...';
-//                        submit_button.className='feedback-form-button-in-progress';
                         FeedbackForm.submit(form_id);
-                    }
+                    };
                 })(form_id, submit_button);
+                // Attach an onclick handler for the button that opens the form.  (jQuery introduced)
+                open_button_id = meta.form_id + '--open';
+                open_button = document.getElementById(open_button_id);
+                open_button_jqid = '#'+open_button_id;
+                $(open_button_jqid).click(function(event){
+                    event.stopPropagation();
+                    open_button.className='feedback-form-link';
+                    FeedbackForm.show(form_id);
+                });
+                // Attach an onclick handler for the form itself.
+                form_div_id = meta.form_id + '--container';
+                form_div = document.getElementById(form_div_id);
+                form_div_jqid = '#'+form_div_id;
+                $(form_div_jqid).click(function(event){
+                    event.stopPropagation();
+                });
+                $(document).click(function(){
+                    form_div.className = 'feedback-form-hidden';
+                });
             } /* if(!meta.no_inline_js) */
         }
     }
