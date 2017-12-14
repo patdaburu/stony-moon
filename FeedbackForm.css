@@ -26,14 +26,14 @@ feedback-form-tr {
 }
 
 .feedback-form-question-text-cell {
-    border-top: 3px solid #ef8853;
-    background: #dd5d1c;
+    border-top: 3px solid #ef8853 !important;
+    background: #dd5d1c !important;
     text-align: left;
     padding: 0;
 }
 
 .feedback-form-question-text {
-    color: white;
+    color: white !important;
     text-align: center;
     margin: 0;
     padding: 0.2em;
@@ -63,6 +63,7 @@ feedback-form-tr {
     box-shadow: none;
     padding: 0;
     border-top: 0;
+    margin-bottom: 0;
 }
 
 .feedback-form-comments-cell {
@@ -75,13 +76,13 @@ feedback-form-tr {
     margin-right: 4px;
     width: 20%;
     vertical-align: top;
-    border-top: 0;
-    padding: 0 8px 0 0;
+    border-top: 0 !important;
+    padding: 0 8px 0 4px;
 }
 
 .feedback-form-comments-input-cell {
     border-top: 0;
-    padding: 0;
+    padding: 0 6px 0 0;
 }
 
 .feedback-form-comments-input {
@@ -112,6 +113,10 @@ feedback-form-tr {
 }
 
 .feedback-form-metadata {
+    display: none;
+}
+
+.feedback-form-hidden {
     display: none;
 }
 
