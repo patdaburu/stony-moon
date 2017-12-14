@@ -93,9 +93,10 @@ feedback-form-tr {
 
 .feedback-form-comments-input {
     width: 100%;
-    height: 2em;
+    box-sizing: border-box;
     resize: none;
     padding: 0;
+    max-height: 6em;
 }
 
 .feedback-form-submit {
@@ -173,8 +174,8 @@ feedback-form-tr {
 
 .feedback-form-goodbye {
     position: fixed;
-    right: 60px;
-    bottom: 60px;
+    right: 90px;
+    bottom: 12px;
     background-color: #dd5d1c;
     box-shadow: 0.5px 1px 1px 1px #dbdbdb;
     border: 3px solid #fff;

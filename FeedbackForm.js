@@ -123,7 +123,10 @@ var FeedbackForm =
         });
     },
 
-
+    /**
+     * Show a form.
+     * @param form_id the ID of the form.
+     */
     show : function(form_id) {
         // Get the meta-data for this form.
         meta = this.form_metas[form_id];
@@ -137,11 +140,14 @@ var FeedbackForm =
      * @param element_id the ID of the element
      */
     hideElementById : function(element_id){
-        // TODO: Refactor to use setClassById.
-        el = document.getElementById(element_id);
-        el.className = 'feedback-form-hidden';
+        FeedbackForm.setClassById(element_id, 'feedback-form-hidden')
     },
 
+    /**
+     * Set the class of a given element.
+     * @param element_id
+     * @param className
+     */
     setClassById : function(element_id, className){
         el = document.getElementById(element_id);
         el.className = className;
@@ -222,6 +228,15 @@ var FeedbackForm =
                 });
             } /* if(!meta.no_inline_js) */
         }
+        // Dynamically resize text areas.
+        jQuery.each(jQuery('textarea[data-autoresize]'), function() {
+            var offset = this.offsetHeight - this.clientHeight;
+
+            var resizeTextarea = function(el) {
+                jQuery(el).css('height', 'auto').css('height', el.scrollHeight + offset);
+            };
+            jQuery(this).on('keyup input', function() { resizeTextarea(this); }).removeAttr('data-autoresize');
+        });
     }
 };
 
