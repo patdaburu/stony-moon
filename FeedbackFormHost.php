@@ -25,9 +25,17 @@ ini_set('display_errors', '1');
     Existing portal styles.
     -->
     <style>
+        .box, table {
+            box-shadow: 1px 2px 4px 0 rgba(66,66,66,.4);
+            background-color: #FFF;
+        }
         table tbody tr th, table tbody tr td {
             border-top: 1px solid #e2e2e1;
             padding: 10px 10px;
+        }
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
         }
     </style>
 </head>
