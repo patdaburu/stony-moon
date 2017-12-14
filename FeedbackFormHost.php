@@ -62,12 +62,6 @@ ini_set('display_errors', '1');
     echo $ff->render();
 ?>
 
-<!--
-<div class="feedback-form-link-flashing">
-    <img src="./FeedbackFormLink.svg" class="feedback-form-link-img"/>
-</div>
--->
-
 </body>
 </html>
 
