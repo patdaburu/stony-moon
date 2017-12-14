@@ -114,6 +114,12 @@ var FeedbackForm =
     },
 
     /**
+    show : function(form_id) {
+
+    },
+     */
+
+    /**
      * This is the initial load logic for feedback forms.
      */
     load : function() {
@@ -164,10 +170,15 @@ var FeedbackForm =
                 submit_button = document.getElementById(submit_button_id);
                 submit_button.onclick = (function(form_id, submit_button){
                     return function() {
-//                        submit_button.disabled = true;
-//                        submit_button.innerText = 'Submitting...';
-//                        submit_button.className='feedback-form-button-in-progress';
                         FeedbackForm.submit(form_id);
+                    }
+                })(form_id, submit_button);
+                // Attach an onclick handler for the button that opens the form.
+                open_button_id = meta.form_id + ':open';
+                open_button = document.getElementById(open_button_id);
+                open_button.onclick = (function(form_id, submit_button){
+                    return function() {
+                        console.log("Thank you for clicking");
                     }
                 })(form_id, submit_button);
             } /* if(!meta.no_inline_js) */
