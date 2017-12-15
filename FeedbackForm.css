@@ -50,6 +50,7 @@ feedback-form-tr {
     color: lightgray;
     padding: 0;
     border-top: 0;
+    cursor: pointer;
 }
 
 .feedback-form-rating-star-on {
@@ -57,12 +58,14 @@ feedback-form-tr {
     color: darkorange;
     padding: 0;
     border-top: 0;
+    cursor: pointer;
 }
 
 .feedback-form-rating-number {
     text-align: center;
     padding: 0;
     border-top: 0;
+    cursor: pointer;
 }
 
 .feedback-form-comments-table {
@@ -180,7 +183,7 @@ feedback-form-tr {
     box-shadow: 0.5px 1px 1px 1px #dbdbdb;
     border: 3px solid #fff;
     border-radius: 12px;
-    padding: 0 12px 0 12px;
+    padding: 18px;
     z-index: 999;
 }
 

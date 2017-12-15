@@ -92,14 +92,20 @@ var FeedbackForm =
         form_meta = this.form_metas[form_id];
         form_handler = form_meta.base_url + "FeedbackFormHandler.php";
         form_data = this.getFeedbackFormData(form_id);
-        form_data_json = JSON.stringify(form_data);
-        console.log('I will submit the following to ' + form_handler + ' ...');
-        console.log(JSON.stringify(form_data));
 
+        // Construct the POST data.
+        post_data = {
+            "reference_id": form_meta.reference_id,
+            "data" : form_data
+        }
+        post_data_json = JSON.stringify(post_data);
+
+        console.log(post_data_json);
+        // Make the request.
         $.ajax({
             type: 'POST',
             url: form_handler,
-            data: form_data_json,
+            data: post_data_json,
             success: function(data, textStatus, jQxhr) {
                 console.log(data);
                 // Hide the feedback button.
@@ -118,6 +124,7 @@ var FeedbackForm =
                 console.log(jqXhr);
                 console.log(textStatus);
                 console.log(errorThrown);
+                alert('We`re sorry.  An error occurred while we were trying to save your responses.')
             },
             dataType: 'json'
         });
