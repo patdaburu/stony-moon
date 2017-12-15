@@ -69,6 +69,11 @@ class FeedbackForm
     private $reference_id = null;
 
     /**
+     * @var string the name of the form handler
+     */
+    private $form_handler = "FeedbackFormHandler.php";
+
+    /**
      * FeedbackForm constructor.
      * @param array $questions an array of FeedbackQuestion objects that define the form
      * @param int $scale the ratings scale
@@ -124,6 +129,14 @@ class FeedbackForm
         return $this->debug;
     }
 
+    public function getFormHandler(){
+        return $this->form_handler;
+    }
+
+    public function setFormHandler($form_handler){
+        $this->form_handler = $form_handler;
+    }
+
     public function setDebug($debug) {
         $this->debug = $debug;
     }
@@ -158,7 +171,8 @@ class FeedbackForm
             "scale"=>$this->scale,
             "no_inline_js"=>$this->no_inline_js,
             "question_ids"=>array(),
-            "base_url"=>$this->baseUrl);
+            "base_url"=>$this->baseUrl,
+            "form_handler"=>$this->baseUrl . $this->form_handler);
 
         // Configure the general HTML from the template.
         $html = $this->html_template;
