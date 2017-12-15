@@ -8,7 +8,10 @@
 
 namespace StearnsConnect;
 
-
+/**
+ * Class FeedbackAnswer
+ * @package StearnsConnect
+ */
 class FeedbackAnswer
 {
 
