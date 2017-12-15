@@ -179,7 +179,7 @@ class FeedbackForm
         $link_class = $this->isFlashy ? 'feedback-form-link-flashing' : 'feedback-form-link';
         $html .= "
         <div class=\"{$link_class}\" id=\"{$this->id}--open\">
-            <img src=\"./FeedbackFormLink.svg\" class=\"feedback-form-link-img\"/>
+            <img src=\"{$this->baseUrl}FeedbackFormLink.svg\" class=\"feedback-form-link-img\"/>
         </div>
         ";
 

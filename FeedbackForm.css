@@ -180,10 +180,14 @@ feedback-form-tr {
     box-shadow: 0.5px 1px 1px 1px #dbdbdb;
     border: 3px solid #fff;
     border-radius: 12px;
-    color: white;
-    font-size: 24px;
     padding: 0 12px 0 12px;
     z-index: 999;
+}
+
+.feedback-form-goodbye p {
+    font-family: georgia, "times new roman", serif !important;
+    color: white !important;
+    font-size: 24px !important;
 }
 
 
