@@ -64,6 +64,11 @@ class FeedbackForm
     private $debug = false;
 
     /**
+     * @var null A reference ID for posts.
+     */
+    private $reference_id = null;
+
+    /**
      * FeedbackForm constructor.
      * @param array $questions an array of FeedbackQuestion objects that define the form
      * @param int $scale the ratings scale
@@ -131,6 +136,14 @@ class FeedbackForm
         $this->isFlashy = $isFlashy;
     }
 
+    public function setReferenceId($reference_id){
+        $this->reference_id = $reference_id;
+    }
+
+    public function getReferenceId() {
+        return $this->reference_id;
+    }
+
     /**
      * Render the form's HTML.
      *
@@ -141,6 +154,7 @@ class FeedbackForm
         // Create the metadata object.
         $meta = array(
             "form_id"=>$this->id,
+            "reference_id"=>$this->reference_id,
             "scale"=>$this->scale,
             "no_inline_js"=>$this->no_inline_js,
             "question_ids"=>array(),

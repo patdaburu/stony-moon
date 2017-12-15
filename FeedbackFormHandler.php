@@ -34,9 +34,18 @@ if(!is_array($decoded)){
     throw new Exception('Received content contained invalid JSON!');
 }
 
+// Get the components from the POSTed object.
+$reference_id = $decoded['reference_id'];
+$data = $decoded['data'];
+
+//If the data object isn't in the shape we expect, that's a problem.
+if(!is_array($data)){
+    throw new Exception('Invalid data.');
+}
+
 //Process the JSON.
 $answers = array();
-foreach ($decoded as $question_id => $values) {
+foreach ($data as $question_id => $values) {
     // Perform data checks.
     if(!is_array($values)){
         throw new Exception(("The values for question '{$question_id}' must include 'rating' and a 'comment'."));
@@ -59,7 +68,10 @@ foreach($answers as $answer){
     array_push($answer_arrays, $answer->toArray());
 }
 // Create the response object.
-$response = array('success'=>true, 'data'=>$answer_arrays);
+$response = array(
+    'success'=>true,
+    'reference_id'=>$reference_id,
+    'data'=>$answer_arrays);
 // Format it.
 $response_json = json_encode($response);
 // That's that!
