@@ -58,6 +58,7 @@ ini_set('display_errors', '1');
     // Set the base URL.
     // ie. http://192.168.110.40/stony-moon/ (*with* the trailing slash)
     $ff->setBaseUrl("./"); // Set the base URL for relative links.
+    //$ff->setFormHandler("FeedbackFormHandler.php");
     $ff->setIsFlashy(true);
     $ff->setReferenceId('abcd1234f');
     echo $ff->render();
