@@ -43,10 +43,17 @@ ini_set('display_errors', '1');
 
 <?php include("FeedbackForm.php") ?>
 <?php include("FeedbackQuestion.php") ?>
+<?php include("FeedbackFormMenuItem.php") ?>
 
 <h1>This is the test host for the feedback form.</h1>
 
-<p class="feedback-form-menu-item-flashing">Menu Item - Provide Feedback</p>
+<p>
+   The menu item is rendered below.
+</p>
+<?php
+    $menu_item = new \StearnsConnect\FeedbackFormMenuItem('Please Provide Some Feedback');
+    echo $menu_item->render();
+?>
 
 <?php
     $questions = array(
