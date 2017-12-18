@@ -125,34 +125,68 @@ class FeedbackForm
         return $this->baseUrl;
     }
 
+    /**
+     * Get the value of the debugging flag.
+     * @return bool
+     */
     public function getDebug() {
         return $this->debug;
     }
 
-    public function getFormHandler(){
-        return $this->form_handler;
-    }
-
-    public function setFormHandler($form_handler){
-        $this->form_handler = $form_handler;
-    }
-
+    /**
+     * Set the value of the debugging flag.
+     * @param bool $debug Are we debugging?
+     */
     public function setDebug($debug) {
         $this->debug = $debug;
     }
 
+    /**
+     * Get the name of the form handler file.  (This value is appended to
+     * the base URL to get the full path to the handler.)
+     * @return string
+     */
+    public function getFormHandler(){
+        return $this->form_handler;
+    }
+
+    /**
+     * Set the name of the form handler file.  (This value is appended to
+     * the base URL to get the full path to the handler.)
+     * @param $form_handler
+     */
+    public function setFormHandler($form_handler){
+        $this->form_handler = $form_handler;
+    }
+
+    /**
+     * Should the form flash to get a user's attention?
+     * @return bool
+     */
     public function getIsFlashy() {
         return $this->isFlashy;
     }
 
+    /**
+     * Should the form flash to get a user's attention?
+     * @param bool $isFlashy
+     */
     public function setIsFlashy($isFlashy) {
         $this->isFlashy = $isFlashy;
     }
 
+    /**
+     * Set a reference ID that can be used when handling form submission.
+     * @param $reference_id
+     */
     public function setReferenceId($reference_id){
         $this->reference_id = $reference_id;
     }
 
+    /**
+     * Get a reference ID that will be used when handling form submission.
+     * @return string
+     */
     public function getReferenceId() {
         return $this->reference_id;
     }

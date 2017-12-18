@@ -91,6 +91,7 @@ var FeedbackForm =
         // Get the meta-data for this form.
         form_meta = this.form_metas[form_id];
         form_handler = form_meta.form_handler;
+        console.log(form_handler);
             //form_meta.base_url + "FeedbackFormHandler.php";
         form_data = this.getFeedbackFormData(form_id);
 
