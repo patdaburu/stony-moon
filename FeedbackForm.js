@@ -142,6 +142,16 @@ var FeedbackForm =
         form_div_id = meta.form_id + '--container';
         form_div = document.getElementById(form_div_id);
         form_div.className = 'feedback-form-container';
+        // If the main link is flashing, turn it off.
+        open_button_id = meta.form_id + '--open';
+        open_button = document.getElementById(open_button_id);
+        open_button.className='feedback-form-link';
+        // If the menu item is flashing, turn it off.
+        menu_item_id = meta.form_id + '--menu-item';
+        menu_item = document.getElementById(menu_item_id);
+        if(menu_item) { // (Consider the menu item may not have been used.)
+            menu_item.className = 'feedback-form-menu-item';
+        }
     },
 
     /**
@@ -222,9 +232,18 @@ var FeedbackForm =
                 open_button_jqid = '#'+open_button_id;
                 $(open_button_jqid).click(function(event){
                     event.stopPropagation();
-                    open_button.className='feedback-form-link';
                     FeedbackForm.show(form_id);
                 });
+                //Attach an onClick handler for the menu item that opens the form.
+                menu_item_id = meta.form_id + '--menu-item';
+                menu_item = document.getElementById(menu_item_id);
+                menu_item_jqid = '#'+menu_item_id;
+                if(menu_item) { // (Consider the menu item may not have been added.)
+                    $(menu_item_jqid).click(function (event) {
+                        event.stopPropagation();
+                        FeedbackForm.show(form_id);
+                    });
+                }
                 // Attach an onclick handler for the form itself.
                 form_div_id = meta.form_id + '--container';
                 form_div = document.getElementById(form_div_id);
