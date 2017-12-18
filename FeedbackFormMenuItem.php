@@ -43,7 +43,7 @@ class FeedbackFormMenuItem
 
     /**
      * Get the menu item's text.
-     * 
+     *
      * @return string the menu item's text
      */
     public function getText() {
@@ -82,7 +82,7 @@ class FeedbackFormMenuItem
      */
     function render(){
         // The CSS class applied to the span depends upon whether or not we're supposed to be flashing.
-        $class_name = $this->isFlashy ? 'feedback-form-menu-item' : 'feedback-form-menu-item-flashing';
+        $class_name = $this->isFlashy ? 'feedback-form-menu-item-flashing' : 'feedback-form-menu-item';
         // The ID of the element is based on the form's ID.
         $span_id = $this->form_id . '--menu-item';
         // Let's put the HTML together!

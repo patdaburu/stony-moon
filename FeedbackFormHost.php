@@ -52,6 +52,7 @@ ini_set('display_errors', '1');
 </p>
 <?php
     $menu_item = new \StearnsConnect\FeedbackFormMenuItem('Please Provide Some Feedback');
+    $menu_item->setIsFlashy(true);
     echo $menu_item->render();
 ?>
 
