@@ -85,6 +85,7 @@ feedback-form-tr {
 .feedback-form-permission-checkbox {
     width: 1.6em;
     height: 1.6em;
+    -webkit-appearance: checkbox;
 }
 
 .feedback-form-permission-checkbox-cell {
