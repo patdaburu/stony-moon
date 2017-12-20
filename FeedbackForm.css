@@ -280,5 +280,19 @@ feedback-form-tr {
     100% {color: #006c67;}
 }
 
+.feedback-form-running-man {
+    position: absolute;
+    right: 190px;
+    bottom: 10px;
+    z-index: 999;
+}
+
+.feedback-form-feedback-bubble {
+    position: absolute;
+    right: 125px;
+    bottom: 60px;
+    z-index: 1000;
+}
+
 
 

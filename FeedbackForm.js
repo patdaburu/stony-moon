@@ -115,11 +115,15 @@ var FeedbackForm =
             data: post_data_json,
             success: function(data, textStatus, jQxhr) {
                 console.log(data);
+                // Reset the form.
+                FeedbackForm.resetForm(form_id);
                 // Hide the menu item (if there is one).
+                /**
                 menu_item_id = meta.form_id + '--menu-item';
                 if(menu_item) { // (Consider the menu item may not have been used.)
                     FeedbackForm.hideElementById(menu_item_id);
                 }
+                 */
                 // Hide the feedback button.
                 open_button_id = form_meta.form_id + '--open';
                 FeedbackForm.hideElementById(open_button_id);
@@ -143,6 +147,33 @@ var FeedbackForm =
     },
 
     /**
+     * Reset a form.
+     * @param form_id the ID of the form
+     */
+    resetForm : function(form_id) {
+        // Reset the actual form data object.
+        this.all_forms[form_id] = {};
+        meta = this.form_metas[form_id];
+        // Reset the states of the controls.
+        for (j = 0; j < meta.question_ids.length; j++) {
+            question_id = meta.question_ids[j];
+            // Attach onclick event handlers to the ratings elements.
+            for (rating = 1; rating <= meta.scale; rating++) {
+                rating_el_types = ['star'];
+                for (ret_idx = 0; ret_idx < rating_el_types.length; ret_idx++) {
+                    rating_el_id = meta.form_id + ':' + question_id + ':' + rating_el_types[ret_idx] + ':' + rating;
+                    rating_el = document.getElementById(rating_el_id);
+                    rating_el.className = 'feedback-form-rating-star-off'; // Turn the star "off".
+                }
+            }
+            // Attach onkeyup event handlers for the comment elements.
+            comment_el_id = meta.form_id + ':' + question_id + ':comment';
+            comment_el = document.getElementById(comment_el_id);
+            comment_el.value = ''; // Clear the value.
+        }
+    },
+
+    /**
      * Show a form.
      * @param form_id the ID of the form.
      */
@@ -161,6 +192,12 @@ var FeedbackForm =
         menu_item = document.getElementById(menu_item_id);
         if(menu_item) { // (Consider the menu item may not have been used.)
             menu_item.className = 'feedback-form-menu-item';
+        }
+        // Hide the running man assets.
+        running_man_asset_ids = [meta.form_id + '--running-man', meta.form_id + '--feedback-bubble'];
+        for(rm_idx=0; rm_idx<running_man_asset_ids.length; rm_idx++) {
+            asset_id = running_man_asset_ids[rm_idx];
+            FeedbackForm.hideElementById(asset_id);
         }
     },
 
@@ -244,6 +281,17 @@ var FeedbackForm =
                     event.stopPropagation();
                     FeedbackForm.show(form_id);
                 });
+                // Attach onclick handlers to the "running man" assets.
+                running_man_asset_ids = [meta.form_id + '--running-man', meta.form_id + '--feedback-bubble'];
+                for(rm_idx=0; rm_idx<running_man_asset_ids.length; rm_idx++) {
+                    asset_id = running_man_asset_ids[rm_idx];
+                    asset_element = document.getElementById(asset_id);
+                    asset_element_jqid = '#'+asset_id;
+                    $(asset_element_jqid).click(function(event){
+                        event.stopPropagation();
+                        FeedbackForm.show(form_id);
+                    });
+                }
                 //Attach an onClick handler for the menu item that opens the form.
                 menu_item_id = meta.form_id + '--menu-item';
                 menu_item = document.getElementById(menu_item_id);
