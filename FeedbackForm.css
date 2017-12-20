@@ -31,6 +31,77 @@ feedback-form-tr {
     padding: 0;
 }
 
+.feedback-form-intro-paragraph {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 6px 0 6px;
+}
+
+.feedback-form-social-media-paragraph{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    padding: 0 6px 0 6px;
+    margin: 0 !important;
+}
+
+.feedback-form-social-media-paragraph-cell{
+    padding: 0 !important;
+    border: 0 !important;
+}
+
+.feedback-form-social-media-logo {
+    width: 24px;
+    height: 24px;
+
+}
+
+.feedback-form-social-media-logo-cell {
+    padding: 0 !important;
+    border: 0 !important;
+    text-align: left;
+    width: 100px !important;
+}
+
+.feedback-form-permission-table{
+    box-shadow: none;
+    padding: 0;
+    border: 1px !important;
+    width: 100%
+}
+
+.feedback-form-permission-text {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0 6px 0 6px;
+    margin: 0;
+}
+
+.feedback-form-permission-text-cell {
+    margin: 0;
+    vertical-align: top;
+    align-content: left;
+    border: 0 !important;
+    padding: 10px 10px 10px 4px !important;
+}
+
+.feedback-form-permission-checkbox {
+    width: 1.6em;
+    height: 1.6em;
+}
+
+.feedback-form-permission-checkbox-cell {
+    vertical-align: top;
+    align-content: right;
+    border: 0 !important;
+    padding: 10px 0 10px 10px !important;
+}
+
+.feedback-form-social-media-table {
+    box-shadow: none;
+    padding: 0;
+    border: 1px !important;
+    margin: 0;
+    width: 100%
+}
+
 .feedback-form-question-text-cell {
     border-top: 3px solid #ef8853 !important;
     background: #dd5d1c !important;
@@ -208,7 +279,6 @@ feedback-form-tr {
     50% {color: #dd5d1c;}
     100% {color: #006c67;}
 }
-
 
 
 

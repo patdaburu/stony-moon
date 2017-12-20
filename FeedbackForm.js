@@ -32,7 +32,7 @@ var FeedbackForm =
      * Retrieve the data object for a given question in a particular form.
      * @param form_id the ID of the form
      * @param question_id the ID of the question
-     * @returns {rating: number, comment: string} the question data object
+     * @returns the question data object
      */
     getQuestionData : function(form_id, question_id) {
         form_data = this.getFeedbackFormData(form_id);
@@ -95,11 +95,16 @@ var FeedbackForm =
             //form_meta.base_url + "FeedbackFormHandler.php";
         form_data = this.getFeedbackFormData(form_id);
 
+        // We'll need the value of the permission checkbox.
+        permission_chkbox_id = form_id + '--permission';
+        permission_chkbox = document.getElementById(permission_chkbox_id);
+
         // Construct the POST data.
         post_data = {
             "reference_id": form_meta.reference_id,
-            "data" : form_data
-        }
+            "data" : form_data,
+            "permission": permission_chkbox.checked
+        };
         post_data_json = JSON.stringify(post_data);
 
         console.log(post_data_json);
@@ -110,6 +115,11 @@ var FeedbackForm =
             data: post_data_json,
             success: function(data, textStatus, jQxhr) {
                 console.log(data);
+                // Hide the menu item (if there is one).
+                menu_item_id = meta.form_id + '--menu-item';
+                if(menu_item) { // (Consider the menu item may not have been used.)
+                    FeedbackForm.hideElementById(menu_item_id);
+                }
                 // Hide the feedback button.
                 open_button_id = form_meta.form_id + '--open';
                 FeedbackForm.hideElementById(open_button_id);

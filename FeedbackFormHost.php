@@ -39,7 +39,7 @@ ini_set('display_errors', '1');
         }
     </style>
 </head>
-<body>
+<body style="background-color: beige;">
 
 <?php include("FeedbackForm.php") ?>
 <?php include("FeedbackQuestion.php") ?>

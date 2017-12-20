@@ -1,9 +1,56 @@
 <div class="feedback-form-hidden" id="[form-id]--container">
     [css]
+
     <div class="feedback-form">
+        <p class="feedback-form-intro-paragraph">
+            At Stearns Bank we strive for excellent customer service.  Your feedback is important to us and we value your input.
+        </p>
         <div>
         [questions]
         </div>
+
+        <div>
+            <table class="feedback-form-social-media-table">
+                <tbody>
+                <tr>
+                    <td class="feedback-form-social-media-paragraph-cell">
+                        <p class="feedback-form-social-media-paragraph">Share your review on:</p>
+                    </td>
+                    <td class="feedback-form-social-media-logo-cell">
+                        <a href="http://www.facebook.com" target="_blank">
+                            <img src="[base-url]facebook.png" class="feedback-form-social-media-logo">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="feedback-form-social-media-paragraph-cell">
+                        <p class="feedback-form-social-media-paragraph">Follow us:</p>
+                    </td>
+                    <td class="feedback-form-social-media-logo-cell">
+                        <a href="http://www.linkedin.com" target="_blank">
+                            <img src="[base-url]linkedin.png" class="feedback-form-social-media-logo">
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div>
+            <table>
+                <tbody>
+                <tr>
+                    <td class="feedback-form-permission-checkbox-cell">
+                        <input type="checkbox" class="feedback-form-permission-checkbox" id="[form-id]--permission" checked>
+                    </td>
+                    <td class="feedback-form-permission-text-cell">
+                        <p class="feedback-form-permission-text">I give Stearns Bank permission to use this feedback in their marketing efforts.</p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
         <div class="feedback-form-submit">
             <button id="[form-id]:submit" class="feedback-form-button">Submit</button>
         </div>

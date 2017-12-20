@@ -227,6 +227,8 @@ class FeedbackForm
                 '<script type="text/javascript" src="'. $this->baseUrl . 'FeedbackForm.js"></script>' :
                 '<script>' .$this->js . '</script>',
             $html);
+        // Replace the base URL tokens in the HTMl with the actual base URL.
+        $html = preg_replace('/\[base-url\]/i', $this->baseUrl, $html);
 
         // Construct the HTML for the questions.
         $questions = '';
