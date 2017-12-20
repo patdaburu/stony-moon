@@ -37,6 +37,10 @@ ini_set('display_errors', '1');
             border-collapse: separate;
             border-spacing: 0;
         }
+        input, textarea {
+            -webkit-appearance: none;
+            border-radius: 0;
+        }
     </style>
 </head>
 <body style="background-color: beige;">
