@@ -36,6 +36,7 @@ if(!is_array($decoded)){
 
 // Get the components from the POSTed object.
 $reference_id = $decoded['reference_id'];
+$permission = $decoded['permission'];
 $data = $decoded['data'];
 
 //If the data object isn't in the shape we expect, that's a problem.
@@ -71,7 +72,8 @@ foreach($answers as $answer){
 $response = array(
     'success'=>true,
     'reference_id'=>$reference_id,
-    'data'=>$answer_arrays);
+    'data'=>$answer_arrays,
+    'permission'=>$permission);
 // Format it.
 $response_json = json_encode($response);
 // That's that!
