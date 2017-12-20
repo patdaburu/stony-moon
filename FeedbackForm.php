@@ -247,6 +247,18 @@ class FeedbackForm
         </div>
         ";
 
+        // Add the "Running Man" elements.
+        $running_man_class = $this->isFlashy ? 'feedback-form-running-man' : 'feedback-form-hidden';
+        $feedback_bubble_class = $this->isFlashy ? 'feedback-form-feedback-bubble' : 'feedback-form-hidden';
+        $html .= "
+        <div id=\"{$this->id}--running-man\" class=\"{$running_man_class}\">
+            <img src=\"{$this->baseUrl}runningman.png\">
+        </div>
+        <div id=\"{$this->id}--feedback-bubble\" class=\"{$feedback_bubble_class}\">
+            <img src=\"{$this->baseUrl}feedbackbubble.png\">
+        </div>
+        ";
+
         // Construct the metadata element.
         $meta_html = '<div id="feedback-form-metadata" class="feedback-form-metadata">' .
             json_encode($meta) . '</div>';
