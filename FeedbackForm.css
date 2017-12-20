@@ -282,17 +282,19 @@ feedback-form-tr {
 }
 
 .feedback-form-running-man {
-    position: absolute;
+    position: fixed;
     right: 190px;
     bottom: 10px;
     z-index: 999;
+    cursor: pointer;
 }
 
 .feedback-form-feedback-bubble {
-    position: absolute;
+    position: fixed;
     right: 125px;
     bottom: 60px;
     z-index: 1000;
+    cursor: pointer;
 }
 
 
