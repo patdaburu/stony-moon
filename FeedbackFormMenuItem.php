@@ -86,7 +86,7 @@ class FeedbackFormMenuItem
         // The ID of the element is based on the form's ID.
         $span_id = $this->form_id . '--menu-item';
         // Let's put the HTML together!
-        $html = "<span id=\"{$span_id}\" class=\"{$class_name}\">{$this->text}</span>";
+        $html = "<a id=\"{$span_id}\" class=\"{$class_name}\">{$this->text}</a>";
         // Simple, eh?
         return $html;
     }
