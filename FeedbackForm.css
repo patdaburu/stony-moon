@@ -70,6 +70,7 @@ feedback-form-tr {
 
 .feedback-form-permission-text {
     font-family: Arial, Helvetica, sans-serif;
+    font-size: smaller;
     padding: 0 6px 0 6px;
     margin: 0;
 }
@@ -83,8 +84,6 @@ feedback-form-tr {
 }
 
 .feedback-form-permission-checkbox {
-    width: 1.6em;
-    height: 1.6em;
     -webkit-appearance: checkbox;
 }
 
@@ -285,7 +284,7 @@ feedback-form-tr {
 
 .feedback-form-running-man {
     position: fixed;
-    right: 190px;
+    right: 150px;
     bottom: 10px;
     z-index: 999;
     cursor: pointer;
@@ -293,10 +292,17 @@ feedback-form-tr {
 
 .feedback-form-feedback-bubble {
     position: fixed;
-    right: 125px;
+    right: 90px;
     bottom: 60px;
     z-index: 1000;
     cursor: pointer;
+    animation: feedback-form-running-man-flash-animation 1s ease-in-out infinite;
+}
+
+@keyframes feedback-form-running-man-flash-animation {
+    0% {opacity: 0.5;}
+    50% {opacity: 1.0;}
+    100% {opacity: 0.5;}
 }
 
 

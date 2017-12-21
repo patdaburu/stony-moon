@@ -241,9 +241,13 @@ class FeedbackForm
 
         // Render the button to open the form.
         $link_class = $this->isFlashy ? 'feedback-form-link-flashing' : 'feedback-form-link';
+        // NOTE:  The circular feedback form link has been hidden.  It can be shown again by removing the div
+        // that wraps it.
         $html .= "
-        <div class=\"{$link_class}\" id=\"{$this->id}--open\">
-            <img src=\"{$this->baseUrl}FeedbackFormLink.svg\" class=\"feedback-form-link-img\"/>
+        <div class=\"feedback-form-hidden\">
+            <div class=\"{$link_class}\" id=\"{$this->id}--open\">
+                <img src=\"{$this->baseUrl}FeedbackFormLink.svg\" class=\"feedback-form-link-img\"/>
+            </div>
         </div>
         ";
 
