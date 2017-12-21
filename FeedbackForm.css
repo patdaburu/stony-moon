@@ -268,11 +268,13 @@ feedback-form-tr {
 
 .feedback-form-menu-item {
     color: #006c67;
+    cursor:pointer;
 }
 
 .feedback-form-menu-item-flashing {
     color: #006c67;
     animation: feedback-form-menu-item-flash-animation 1s ease-in-out infinite;
+    cursor:pointer;
 }
 
 @keyframes feedback-form-menu-item-flash-animation {
