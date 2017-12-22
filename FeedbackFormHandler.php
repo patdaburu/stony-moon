@@ -36,6 +36,7 @@ if(!is_array($decoded)){
 
 // Get the components from the POSTed object.
 $reference_id = $decoded['reference_id'];
+$csrf_token = $decoded['csrf_token'];
 $permission = $decoded['permission'];
 $data = $decoded['data'];
 
@@ -72,6 +73,7 @@ foreach($answers as $answer){
 $response = array(
     'success'=>true,
     'reference_id'=>$reference_id,
+    'csrf_token'=>$csrf_token,
     'data'=>$answer_arrays,
     'permission'=>$permission);
 // Format it.

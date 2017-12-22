@@ -64,9 +64,14 @@ class FeedbackForm
     private $debug = false;
 
     /**
-     * @var null A reference ID for posts.
+     * @var string A reference ID for posts.
      */
     private $reference_id = null;
+
+    /**
+     * @var string the CSRF token
+     */
+    private $csrf_token = null;
 
     /**
      * @var string the name of the form handler
@@ -192,6 +197,22 @@ class FeedbackForm
     }
 
     /**
+     * Set the CSRF token that can be submitted with the form data.
+     * @param $token
+     */
+    public function setCsrfToken($token){
+        $this->csrf_token = $token;
+    }
+
+    /**
+     * Get the CSRF token that can be submitted with the form data.
+     * @return string
+     */
+    public function getCsrfToken() {
+        return $this->csrf_token;
+    }
+
+    /**
      * Render the form's HTML.
      *
      * @return string
@@ -202,6 +223,7 @@ class FeedbackForm
         $meta = array(
             "form_id"=>$this->id,
             "reference_id"=>$this->reference_id,
+            "csrf_token"=>$this->csrf_token,
             "scale"=>$this->scale,
             "no_inline_js"=>$this->no_inline_js,
             "question_ids"=>array(),
