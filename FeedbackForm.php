@@ -228,6 +228,7 @@ class FeedbackForm
             "no_inline_js"=>$this->no_inline_js,
             "question_ids"=>array(),
             "base_url"=>$this->baseUrl,
+            "debug"=>$this->debug,
             "form_handler"=>$this->baseUrl . $this->form_handler);
 
         // Configure the general HTML from the template.
