@@ -75,6 +75,7 @@ ini_set('display_errors', '1');
     $ff->setIsFlashy(true);
     $ff->setReferenceId('abcd1234f');
     $ff->setCsrfToken('my_csrf_token');
+    $ff->setDebug(true);
     echo $ff->render();
 ?>
 

@@ -91,8 +91,9 @@ var FeedbackForm =
         // Get the meta-data for this form.
         form_meta = this.form_metas[form_id];
         form_handler = form_meta.form_handler;
-        console.log(form_handler);
-            //form_meta.base_url + "FeedbackFormHandler.php";
+        if(form_meta.debug) {
+            console.log(form_handler);
+        }
         form_data = this.getFeedbackFormData(form_id);
 
         // We'll need the value of the permission checkbox.
@@ -108,14 +109,18 @@ var FeedbackForm =
         };
         post_data_json = JSON.stringify(post_data);
 
-        console.log(post_data_json);
+        if(form_meta.debug) {
+            console.log(post_data_json);
+        }
         // Make the request.
         $.ajax({
             type: 'POST',
             url: form_handler,
             data: post_data_json,
             success: function(data, textStatus, jQxhr) {
-                console.log(data);
+                if(form_meta.debug) {
+                    console.log(data);
+                }
                 // Reset the form.
                 FeedbackForm.resetForm(form_id);
                 // Hide the menu item (if there is one).
