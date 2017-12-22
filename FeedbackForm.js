@@ -102,6 +102,7 @@ var FeedbackForm =
         // Construct the POST data.
         post_data = {
             "reference_id": form_meta.reference_id,
+            "csrf_token": form_meta.csrf_token,
             "data" : form_data,
             "permission": permission_chkbox.checked
         };
