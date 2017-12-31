@@ -11,7 +11,7 @@
 }
 
 .feedback-form-cell {
-    padding: 0;
+    padding: 1px 2px 4px 0;
 }
 
 .feedback-form-container {
@@ -47,14 +47,29 @@
 
 .feedback-form-intro-paragraph {
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     padding: 6px;
+    margin: 0;
 }
 
 .feedback-form-social-media-paragraph{
     font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+    text-align: left;
     padding: 0 6px 0 6px;
     margin: 0 !important;
+}
+
+.feedback-form-social-media {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.feedback-form-social-media-text{
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    padding: 0 6px 0 6px;
+    margin: 0 !important;
+    vertical-align: middle !important;
 }
 
 .feedback-form-social-media-paragraph-cell{
@@ -65,8 +80,9 @@
 .feedback-form-social-media-logo {
     width: 24px;
     height: 24px;
-
+    vertical-align: middle;
 }
+
 
 .feedback-form-social-media-logo-cell {
     padding: 0 !important;
@@ -74,6 +90,7 @@
     text-align: left;
     width: 100px !important;
 }
+
 
 .feedback-form-permission-table{
     box-shadow: none;
@@ -117,15 +134,15 @@
 }
 
 .feedback-form-question-text-cell {
-    border-top: 3px solid #ef8853 !important;
-    background: #dd5d1c !important;
+    border-top: 3px solid #9bc2e6 !important;
+    background: #9bc2e6 !important;
     text-align: left;
     padding: 0;
 }
 
 .feedback-form-question-text {
-    color: white !important;
-    text-align: center;
+    color: black !important;
+    text-align: left;
     margin: 0;
     padding: 0.2em;
 }
@@ -265,7 +282,7 @@
     position: fixed;
     right: 90px;
     bottom: 12px;
-    background-color: #dd5d1c;
+    background-color: #9bc2e6;
     box-shadow: 0.5px 1px 1px 1px #dbdbdb;
     border: 3px solid #fff;
     border-radius: 12px;
