@@ -1,5 +1,10 @@
 <div class="feedback-form-hidden" id="[form-id]--container">
     [css]
+    <table class="feedback-form-container-table">
+        <tbody>
+        <tr>
+            <td valign="bottom" class="feedback-form-cell">
+
 
     <div class="feedback-form">
         <p class="feedback-form-intro-paragraph">
@@ -9,6 +14,21 @@
         [questions]
         </div>
 
+        <div class="feedback-form-social-media">
+            <p class="feedback-form-social-media-paragraph">
+                <span class="feedback-form-social-media-text">Share your review on:&nbsp;</span>
+                <a href="https://www.facebook.com/pg/stearnsbankna/reviews/?ref=page_internal" target="_blank">
+                    <img src="[base-url]facebook.png" class="feedback-form-social-media-logo">
+                </a>
+            </p>
+            <p class="feedback-form-social-media-paragraph">
+                <span class="feedback-form-social-media-text">Follow us:&nbsp;</span>
+                <a href="https://www.linkedin.com/company/71101" target="_blank">
+                    <img src="[base-url]linkedin.png" class="feedback-form-social-media-logo">
+                </a>
+            </p>
+        </div>
+        <!--
         <div>
             <table class="feedback-form-social-media-table">
                 <tbody>
@@ -35,6 +55,7 @@
                 </tbody>
             </table>
         </div>
+        -->
 
         <div>
             <table>
@@ -52,9 +73,17 @@
         </div>
 
         <div class="feedback-form-submit">
-            <button id="[form-id]:submit" class="feedback-form-button">Submit</button>
+            <button id="[form-id]:submit" class="feedback-form-button">
+                <span id="[form-id]--submit-button-text">Submit</span>
+                <img id="[form-id]--loading" src="[base-url]loading.gif" class="feedback-form-hidden"/>
+            </button>
         </div>
     </div>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
     [js]
     [meta]
 </div>
