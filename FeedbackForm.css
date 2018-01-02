@@ -12,6 +12,8 @@
 
 .feedback-form-cell {
     padding: 1px 2px 4px 0;
+    vertical-align: bottom;
+    background-color: transparent !important;
 }
 
 .feedback-form-container {
@@ -29,6 +31,7 @@
     width: 100%;
     background-color: white;
     box-shadow: 1px 2px 4px 0 rgba(66,66,66,.4);
+    vertical-align: bottom;
 }
 
 .feedback-form-metadata {
