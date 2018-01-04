@@ -51,8 +51,10 @@
 .feedback-form-intro-paragraph {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+    line-height: 101% !important;
     padding: 6px;
     margin: 0;
+    text-align: left !important;
 }
 
 .feedback-form-social-media-paragraph{
@@ -108,6 +110,8 @@
     font-size: smaller;
     padding: 0 6px 0 6px;
     margin: 0;
+    text-align: left !important;
+    line-height: 101% !important;
 }
 
 .feedback-form-permission-text-cell {
@@ -138,17 +142,19 @@
 }
 
 .feedback-form-question-text-cell {
-    border-top: 3px solid #9bc2e6 !important;
-    background: #9bc2e6 !important;
+    border-top: 3px solid #082f52 !important;
+    background: #082f52 !important;
     text-align: left;
     padding: 0;
 }
 
 .feedback-form-question-text {
-    color: black !important;
+    color: white !important;
     text-align: left;
     margin: 0;
     padding: 0.2em;
+    font: normal 18px/20px georgia, "times new roman", serif;
+    line-height: 101%;
 }
 
 .feedback-form-rating-star-off {
@@ -286,7 +292,7 @@
     position: fixed;
     right: 90px;
     bottom: 12px;
-    background-color: #9bc2e6;
+    background-color: #082f52;
     box-shadow: 0.5px 1px 1px 1px #dbdbdb;
     border: 3px solid #fff;
     border-radius: 12px;
