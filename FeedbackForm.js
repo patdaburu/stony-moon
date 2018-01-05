@@ -107,7 +107,7 @@ var FeedbackForm =
         console.log('The worst rating is ' + worst_rating);
 
         // If no ratings were provided...
-        if(worst_rating == -1) {
+        if(worst_rating < 0) {
             // ...alert the user...
             alert('Please provide a rating.');
             // ...and continue.
@@ -242,6 +242,8 @@ var FeedbackForm =
             asset_id = running_man_asset_ids[rm_idx];
             FeedbackForm.hideElementById(asset_id);
         }
+        // Hide the previous "Goodbye" element (if it's visible).
+        FeedbackForm.hideElementById(meta.form_id + '--goodbye');
     },
 
     /**

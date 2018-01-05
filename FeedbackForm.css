@@ -291,7 +291,6 @@
 
 .feedback-form-goodbye {
     position: fixed;
-    right: 90px;
     bottom: 12px;
     background-color: white;
     box-shadow: 0.5px 1px 1px 1px #dbdbdb;
@@ -314,9 +313,14 @@
     width: 100%;
 }
 
+.feedback-form-goodbye-close-cell {
+    border: 0;
+}
+
 .feedback-form-goodbye-table {
     width: 100%;
     border: 0 !important;
+    background-color: #082f52;
 }
 
 .feedback-form-goodbye p {
@@ -336,14 +340,17 @@
     font-size: 24px !important;
     background: #082f52;
     align-content: center;
+    border: 0 !important;
 }
 
 .feedback-form-goodbye-body-cell {
-    padding: 0px;
+    padding: 0;
+    border: 0;
+    background-color: white;
 }
 
 .feedback-form-thankyou {
-    margin: 0px;
+    margin: 0;
 }
 
 .feedback-form-goodbye-language {
