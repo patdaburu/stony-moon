@@ -349,7 +349,7 @@ class FeedbackForm
 
         $html .= "
             <td class=\"feedback-form-comments-input-cell\">
-            <textarea maxlength=\"250\" data-autoresize rows=\"2\" class=\"feedback-form-comments-input\" 
+            <textarea maxlength=\"250\" data-autoresize rows=\"1\" class=\"feedback-form-comments-input\" 
                 id=\"{$this->id}:{$feedbackQuestion->getId()}:comment\" {$onkeyup}
                 placeholder='(Optional)'
                 ></textarea></td>
