@@ -315,14 +315,16 @@
 }
 
 .feedback-form-goodbye-close-cell {
-    border: 0;
     padding: 8px 8px 8px 0 !important;
+    background-color: #082f52 !important;
+    border: 0 !important;
 }
 
 .feedback-form-goodbye-table {
     width: 100%;
     border: 0 !important;
     background-color: #082f52;
+    margin: 0 !important;
 }
 
 /*
@@ -335,14 +337,14 @@
 */
 
 .feedback-form-goodbye-title-row {
-    background: #082f52;
+    background: #082f52 !important;
 }
 
 .feedback-form-goodbye-title-cell {
     font-family: georgia, "times new roman", serif !important;
     color: white !important;
     font-size: 24px !important;
-    background: #082f52;
+    background: #082f52 !important;
     align-content: center;
     border: 0 !important;
     padding: 0 0 0 8px !important;
@@ -366,11 +368,16 @@
 
 .feedback-form-thankyou {
     margin: 0;
+    font-family: georgia, "times new roman", serif !important;
+    color: white !important;
+    font-size: 24px !important;
+    background-color: #082f52 !important;
 }
 
 .feedback-form-goodbye-language {
     font-family: Arial, Helvetica, sans-serif;
     padding: 10px;
+    text-align: left;
 }
 
 .feedback-form-goodbye-close {
