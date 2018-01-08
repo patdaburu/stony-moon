@@ -13,21 +13,6 @@
         <div>
         [questions]
         </div>
-
-        <div class="feedback-form-social-media">
-            <p class="feedback-form-social-media-paragraph">
-                <span class="feedback-form-social-media-text">Share your review on:&nbsp;</span>
-                <a href="https://www.facebook.com/pg/stearnsbankna/reviews/?ref=page_internal" target="_blank">
-                    <img src="[base-url]facebook.png" class="feedback-form-social-media-logo">
-                </a>
-            </p>
-            <p class="feedback-form-social-media-paragraph">
-                <span class="feedback-form-social-media-text">Follow us:&nbsp;</span>
-                <a href="https://www.linkedin.com/company/71101" target="_blank">
-                    <img src="[base-url]linkedin.png" class="feedback-form-social-media-logo">
-                </a>
-            </p>
-        </div>
         <div>
             <table class="feedback-form-permission-table">
                 <tbody>
@@ -59,5 +44,44 @@
     [meta]
 </div>
 <div class="feedback-form-hidden" id="[form-id]--goodbye">
-    <p>Thank you!</p>
+<!--<div class="feedback-form-goodbye" id="[form-id]--goodbye"> -->
+    <table class="feedback-form-goodbye-table">
+        <tbody>
+        <tr class="feedback-form-goodbye-title-row">
+            <td class="feedback-form-goodbye-title-cell">
+                <p class="feedback-form-thankyou">Thank you!</p>
+            </td>
+            <td class="feedback-form-goodbye-close-cell"><div id="[form-id]--goodbye-close" class="feedback-form-goodbye-close">X</div></td>
+        </tr>
+        <tr>
+            <td colspan="2" class="feedback-form-goodbye-body-cell">
+                <div id="[form-id]--goodbye-language" class="feedback-form-goodbye-language">
+                    We value your opinion and would like to better understand any areas where we could make improvements.
+                    A Stearns Bank representative will reach out within the next 1-2 business days to discuss your feedback.                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="feedback-form-goodbye-body-cell">
+                <div id="[form-id]--goodbye-social-media" class="feedback-form-social-media">
+                    <p class="feedback-form-goodbye-thank-you-language">
+                        We value your opinion and encourage you to share your feedback.
+                    </p>
+                    <p class="feedback-form-social-media-paragraph">
+                        <span class="feedback-form-social-media-text">Share your review on:&nbsp;</span>
+                        <a href="https://www.facebook.com/pg/stearnsbankna/reviews/?ref=page_internal" target="_blank">
+                            <img src="[base-url]facebook.png" class="feedback-form-social-media-logo">
+                        </a>
+                    </p>
+                    <p class="feedback-form-social-media-paragraph">
+                        <span class="feedback-form-social-media-text">Follow us:&nbsp;</span>
+                        <a href="https://www.linkedin.com/company/71101" target="_blank">
+                            <img src="[base-url]linkedin.png" class="feedback-form-social-media-logo">
+                        </a>
+                    </p>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
 </div>

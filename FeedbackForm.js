@@ -96,6 +96,24 @@ var FeedbackForm =
         }
         form_data = this.getFeedbackFormData(form_id);
 
+        // Find the worst rating.
+        worst_rating = -1;  // If no ratings are supplied, the value will be < 0.
+        question_ids = $.map(form_data, function(val, idx){
+            rating = val.rating;
+            if(rating && (worst_rating < 0 || rating < worst_rating)) {
+                worst_rating = rating;
+            }
+            return val;
+        });
+
+        // If no ratings were provided...
+        if(worst_rating < 0) {
+            // ...alert the user...
+            alert('Please provide a rating.');
+            // ...and continue.
+            return;
+        }
+
         // We'll need the value of the permission checkbox.
         permission_chkbox_id = form_id + '--permission';
         permission_chkbox = document.getElementById(permission_chkbox_id);
@@ -139,7 +157,25 @@ var FeedbackForm =
                 goodbye_div_id = form_meta.form_id + '--goodbye';
                 goodbye_div_jqid = "#"+form_meta.form_id + '--goodbye';
                 FeedbackForm.setClassById(goodbye_div_id, 'feedback-form-goodbye');
-                $(goodbye_div_jqid).fadeOut(5000);
+
+                // Set the visibility of elements on the "goodbye" form based on the
+                // rating.
+                goodbye_language_div_id = form_meta.form_id + '--goodbye-language';
+                goodbye_language_el = document.getElementById(goodbye_language_div_id);
+                //goodbye_language_div_jqid = "#"+goodbye_language_div_id;
+                goodbye_social_div_id = form_meta.form_id + '--goodbye-social-media';
+                //goodbye_social_div_jqid = "#"+goodbye_social_div_id;
+                goodbye_social_div_el = document.getElementById(goodbye_social_div_id);
+                if(worst_rating <=3) {
+                    FeedbackForm.setClassById(goodbye_language_div_id, 'feedback-form-goodbye-language');
+                    FeedbackForm.setClassById(goodbye_social_div_id, 'feedback-form-hidden');
+                } else {
+                    FeedbackForm.setClassById(goodbye_language_div_id, 'feedback-form-hidden');
+                    FeedbackForm.setClassById(goodbye_social_div_id, 'feedback-form-social-media');
+                }
+
+
+                // $(goodbye_div_jqid).fadeOut(5000);
             },
             error: function(jqXhr, textStatus, errorThrown) {
                 console.log('error!');
@@ -205,6 +241,8 @@ var FeedbackForm =
             asset_id = running_man_asset_ids[rm_idx];
             FeedbackForm.hideElementById(asset_id);
         }
+        // Hide the previous "Goodbye" element (if it's visible).
+        FeedbackForm.hideElementById(meta.form_id + '--goodbye');
     },
 
     /**
@@ -316,6 +354,23 @@ var FeedbackForm =
                     event.stopPropagation();
                 });
                 $(document).click(function(){
+                    form_div.className = 'feedback-form-hidden';
+                });
+                // Attach an onClick handler for the "goodbye" form to prevent clicks from closing it.
+                goodbye_div_id = meta.form_id + '--goodbye';
+                goodbye_div_jqid = "#"+goodbye_div_id;
+                $(goodbye_div_jqid).click(function(event) {
+                    event.stopPropagation();
+                });
+                // Attach an onclick handler for the button that closes the "goodbye"
+                // element.
+                goodbye_close_div_id = meta.form_id + '--goodbye-close';
+                goodbye_close_div_jqid = '#'+goodbye_close_div_id;
+                $(goodbye_close_div_jqid).click(function(event){
+                    event.stopPropagation();
+                    goodbye_div_id = meta.form_id + '--goodbye';
+                    goodbye_div_jqid = "#"+form_meta.form_id + '--goodbye';
+                    FeedbackForm.setClassById(goodbye_div_id, 'feedback-form-hidden');
                     form_div.className = 'feedback-form-hidden';
                 });
             } /* if(!meta.no_inline_js) */
