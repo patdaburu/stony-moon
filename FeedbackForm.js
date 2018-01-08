@@ -96,7 +96,8 @@ var FeedbackForm =
         }
         form_data = this.getFeedbackFormData(form_id);
 
-        worst_rating = -1;
+        // Find the worst rating.
+        worst_rating = -1;  // If no ratings are supplied, the value will be < 0.
         question_ids = $.map(form_data, function(val, idx){
             rating = val.rating;
             if(rating && (worst_rating < 0 || rating < worst_rating)) {
@@ -104,7 +105,6 @@ var FeedbackForm =
             }
             return val;
         });
-        console.log('The worst rating is ' + worst_rating);
 
         // If no ratings were provided...
         if(worst_rating < 0) {
@@ -113,7 +113,6 @@ var FeedbackForm =
             // ...and continue.
             return;
         }
-
 
         // We'll need the value of the permission checkbox.
         permission_chkbox_id = form_id + '--permission';
